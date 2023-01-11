@@ -47,7 +47,7 @@ spec:
   type: LoadBalancer
   selector:
     app.kubernetes.io/component: controller
-
+    argocd.argoproj.io/instance: nginx
   ports:
     - protocol: TCP
       port: 80
