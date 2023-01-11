@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
-    app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/name: ingress-nginx
 spec:
@@ -34,9 +33,9 @@ metadata:
 spec:
   ports:
   - appProtocol: http
-    name: http-webhook
+    name: nginx-http
     port: 80
-    targetPort: webhook
+    targetPort: 80
   selector:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/name: ingress-nginx
