@@ -26,8 +26,6 @@ kind: Service
 metadata:
   labels:
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: ingress-nginx
-    app.kubernetes.io/name: ingress-nginx
   name: ingress-nginx-controller
   namespace: nginx
 spec:
@@ -38,17 +36,13 @@ spec:
     targetPort: 80
   selector:
     app: nginx
-    # app.kubernetes.io/instance: ingress-nginx
-    # app.kubernetes.io/name: ingress-nginx
   type: ClusterIP
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: ingress-nginx
-    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/name: ingress-nginx-loadbalancer
     app.kubernetes.io/part-of: ingress-nginx
   name: nginx-service-loadbalancer
   namespace: nginx
@@ -56,8 +50,6 @@ spec:
   type: LoadBalancer
   selector:
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: ingress-nginx
-    app.kubernetes.io/name: ingress-nginx
   ports:
     - protocol: TCP
       port: 80
