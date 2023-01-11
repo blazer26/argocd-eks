@@ -37,8 +37,9 @@ spec:
     port: 80
     targetPort: 80
   selector:
-    app.kubernetes.io/instance: ingress-nginx
-    app.kubernetes.io/name: ingress-nginx
+    app: nginx
+    # app.kubernetes.io/instance: ingress-nginx
+    # app.kubernetes.io/name: ingress-nginx
   type: ClusterIP
 ---
 apiVersion: v1
