@@ -22,15 +22,15 @@ spec:
               command:
               - /wait-shutdown
         livenessProbe:
-        failureThreshold: 5
-        httpGet:
-          path: /healthz
-          port: 808
-          scheme: HTTP
-        initialDelaySeconds: 10
-        periodSeconds: 10
-        successThreshold: 1
-        timeoutSeconds: 1
+          failureThreshold: 5
+          httpGet:
+            path: /healthz
+            port: 808
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
         ports:
         - containerPort: 80
         volumeMounts:
