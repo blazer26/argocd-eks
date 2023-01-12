@@ -38,11 +38,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app.kubernetes.io/name: ingress-nginx-loadbalancer
-    app.kubernetes.io/part-of: ingress-nginx
+  # labels:
+  #   app.kubernetes.io/name: ingress-nginx-loadbalancer
+  #   app.kubernetes.io/part-of: ingress-nginx
   name: nginx-service-loadbalancer
-  namespace: nginx
+  # namespace: nginx
 spec:
   type: LoadBalancer
   selector:
