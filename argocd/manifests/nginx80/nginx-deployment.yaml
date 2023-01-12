@@ -16,24 +16,22 @@ spec:
       - name: nginx
         image: nginx:1.14.2
         ports:
-        - containerPort: 8080
-# ---
+        - containerPort: 80
+---
 # apiVersion: v1
 # kind: Service
 # metadata:
+#   name: nginx-service
 #   labels:
-#     app.kubernetes.io/component: controller
-#   name: ingress-nginx-ctrl
-#   namespace: nginx
+#     app: nginx-service
 # spec:
-#   ports:
-#   - appProtocol: http
-#     name: nginx-http
-#     port: 80
-#     targetPort: 8080
 #   selector:
 #     app: nginx
-#   type: ClusterIP
+#   ports:
+#     - protocol: TCP
+#       name: nginx-service
+#       port: 80
+#       targetPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -41,7 +39,7 @@ metadata:
   # labels:
   #   app.kubernetes.io/name: ingress-nginx-loadbalancer
   #   app.kubernetes.io/part-of: ingress-nginx
-  name: nginx-service-loadbalancer
+  name: nginx-svc-lb
   # namespace: nginx
 spec:
   type: LoadBalancer
@@ -51,4 +49,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 80
