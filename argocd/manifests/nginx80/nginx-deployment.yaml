@@ -24,13 +24,27 @@ spec:
         livenessProbe:
           failureThreshold: 5
           httpGet:
-            path: /healthz
+            path: /
             port: 80
             scheme: HTTP
           initialDelaySeconds: 10
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 90Mi
         ports:
         - containerPort: 80
         volumeMounts:
