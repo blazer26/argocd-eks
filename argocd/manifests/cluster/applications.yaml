@@ -20,6 +20,25 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: jenkins
+  namespace: devops-tools
+spec:
+  destination:
+    namespace: devops-tools
+    server: https://kubernetes.default.svc
+  project: devops-tools
+  source:
+    path: argocd/manifests/jenkins
+    repoURL: https://github.com/blazer26/argocd-eks.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: prometheus
   namespace: argocd
 spec:

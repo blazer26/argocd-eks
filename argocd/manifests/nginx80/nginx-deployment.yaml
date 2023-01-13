@@ -62,7 +62,7 @@ metadata:
   #   app.kubernetes.io/name: ingress-nginx-loadbalancer
   #   app.kubernetes.io/part-of: ingress-nginx
   name: nginx-svc-lb
-  # namespace: nginx
+  namespace: nginx
 spec:
   type: LoadBalancer
   selector:
