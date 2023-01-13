@@ -21,7 +21,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: jenkins
-  namespace: devops-tools
+  namespace: argocd
 spec:
   destination:
     namespace: devops-tools
